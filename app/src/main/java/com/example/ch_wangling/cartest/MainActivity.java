@@ -38,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //retrofit的基本用法
     public void get_request(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://fy.iciba.com/")
+                //需要屏蔽gson分析json这个方法
 //                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -52,8 +54,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call,@NonNull Response<ResponseBody> response) {
                 try{
+                    //注意空指针异常
                     if (response.body() != null){
+                        //注意IO异常
                         try{
+                            //实例化一个String变量，来装入获取的json数据，注意格式
                             String jsonStr = new String(response.body().bytes());
                             textView.setText(jsonStr);
                             Log.d("查看获取的数据", jsonStr);
