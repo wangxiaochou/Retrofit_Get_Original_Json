@@ -1,0 +1,2 @@
+# Retrofit_Get_Original_Json
+使用retrofit的get方法获取API接口最原始的json数据
