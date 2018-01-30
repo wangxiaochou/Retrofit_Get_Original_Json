@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         Call<ResponseBody> call = carInterface.getCall();
 
+        //call.enqueue开启异步网络请求
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call,@NonNull Response<ResponseBody> response) {
